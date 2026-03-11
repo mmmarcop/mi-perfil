@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marco Meneses | FinTech & Finance Intern 2026</title>
+<meta name="description" content="Portfolio of Marco Meneses, Rising Junior BBA Candidate at Wilkes University, NCAA DIII Wrestler, and Greenwood Project FinTech Scholar seeking Summer 2026 internships in finance, fintech, and business analytics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23080c14'/><text y='.9em' font-size='72' font-family='serif' font-weight='900' fill='%23c9a84c' x='12'>M</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #05070a;
+    --surface: #0d121a;
+    --surface-alt: #161e2b;
+    --border: rgba(201, 168, 76, 0.2);
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --text: #f0f0f0;
+    --text-muted: #94a3b8;
+    --accent: #2dd4a0;
+}
+
+html { scroll-behavior: smooth; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; line-height: 1.6; overflow-x: hidden; }
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle at 2px 2px, rgba(201,168,76,0.05) 1px, transparent 0);
+    background-size: 40px 40px;
+    z-index: -1;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+/* Header */
+header { padding: 2rem 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.logo { font-family: 'Playfair Display', serif; font-weight: 900; color: var(--gold); text-decoration: none; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; }
+.badge-group { display: flex; gap: 10px; flex-wrap: wrap; }
+.status-badge, .intern-badge { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 6px 12px; border-radius: 30px; display: flex; align-items: center; gap: 6px; }
+.status-badge { color: var(--accent); background: rgba(45,212,160,0.1); border: 1px solid rgba(45,212,160,0.2); }
+.intern-badge { color: var(--gold); background: rgba(201,168,76,0.1); border: 1px solid var(--border); }
+.dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
+
+/* Hero */
+.hero { padding: 5rem 0 3rem; }
+.hero-eyebrow { font-family: 'DM Mono', monospace; color: var(--gold); font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; }
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1; margin-bottom: 1.5rem; }
+h1 span { color: var(--gold); }
+.hero-tagline { max-width: 650px; color: var(--text-muted); font-size: 1.15rem; margin-bottom: 2.5rem; }
+.btn-pitch { background: var(--gold); color: #000; border: none; padding: 12px 24px; border-radius: 4px; font-weight: 700; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+.btn-pitch:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+/* Timeline */
+.timeline-section { margin-bottom: 4rem; }
+.timeline { position: relative; max-width: 800px; margin: 2rem 0; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--border); }
+.milestone { position: relative; margin-bottom: 2.5rem; }
+.milestone::after { content: ''; position: absolute; left: -34px; top: 8px; width: 9px; height: 9px; background: var(--gold); border-radius: 50%; border: 4px solid var(--bg); }
+.m-year { font-family: 'DM Mono', monospace; color: var(--gold); font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem; }
+.m-title { font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+.m-desc { color: var(--text-muted); font-size: 0.9rem; }
+
+/* Skills */
+.skills-bar { display: flex; flex-wrap: wrap; gap: 12px; margin: 2rem 0 4rem; }
+.skill-pill { padding: 6px 16px; border-radius: 30px; background: var(--surface); border: 1px solid var(--border); font-size: 0.75rem; font-family: 'DM Mono', monospace; color: var(--gold); transition: 0.3s; }
+.skill-pill:hover { border-color: var(--gold); transform: translateY(-2px); }
+
+/* Section headers */
+.section-header { font-family: 'DM Mono', monospace; color: var(--gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1.5rem; }
+.section-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* AI Assistant */
+.ai-container { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+.ai-header { background: var(--surface-alt); padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.ai-header-left { display: flex; flex-direction: column; gap: 2px; }
+.ai-header-right { display: flex; align-items: center; gap: 10px; }
+
+.api-status { font-size: 0.6rem; font-family: 'DM Mono', monospace; padding: 3px 8px; border-radius: 10px; }
+.api-status.no-key { color: #f97316; background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.2); }
+.api-status.has-key { color: var(--accent); background: rgba(45,212,160,0.1); border: 1px solid rgba(45,212,160,0.2); }
+
+.setup-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 5px 12px; font-size: 0.7rem; font-family: 'DM Mono', monospace; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+.setup-btn:hover { background: var(--gold); color: #000; }
+.recruiter-mode-btn { background: transparent; border: 1px solid rgba(201,168,76,0.4); color: var(--text-muted); padding: 5px 12px; font-size: 0.7rem; font-family: 'DM Mono', monospace; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+.recruiter-mode-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+.ai-messages { height: 400px; overflow-y: auto; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; background: #070a10; }
+.ai-messages::-webkit-scrollbar { width: 4px; }
+.ai-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.msg { max-width: 85%; padding: 0.85rem 1.1rem; border-radius: 8px; font-size: 0.95rem; line-height: 1.6; }
+.msg.ai { background: var(--surface-alt); align-self: flex-start; border-left: 3px solid var(--gold); }
+.msg.user { background: var(--gold); color: #000; align-self: flex-end; font-weight: 600; }
+
+.quick-prompts { padding: 0.75rem 1.5rem; display: flex; gap: 8px; overflow-x: auto; background: #090e16; border-top: 1px solid var(--border); }
+.quick-prompts::-webkit-scrollbar { display: none; }
+.prompt-chip { white-space: nowrap; background: var(--surface-alt); border: 1px solid var(--border); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; color: var(--text-muted); cursor: pointer; transition: 0.2s; }
+.prompt-chip:hover { border-color: var(--gold); color: var(--gold); }
+
+.ai-input-area { padding: 1rem; background: var(--surface-alt); display: flex; gap: 10px; }
+.ai-input { flex: 1; background: var(--bg); border: 1px solid var(--border); padding: 12px; color: #fff; border-radius: 6px; outline: none; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; }
+.ai-input:focus { border-color: var(--gold); }
+.ai-input::placeholder { color: var(--text-muted); }
+
+/* Work With Marco */
+.work-section { background: linear-gradient(to right, var(--surface), var(--bg)); border: 1px solid var(--border); padding: 3rem; border-radius: 8px; text-align: center; margin-bottom: 5rem; }
+.contact-grid { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
+.contact-link { text-decoration: none; color: var(--gold); font-family: 'DM Mono', monospace; font-size: 0.9rem; border: 1px solid var(--border); padding: 10px 20px; border-radius: 4px; transition: 0.3s; }
+.contact-link:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+
+/* Pitch Modal */
+#pitch-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+#pitch-modal.open { display: flex; }
+.modal-content { background: var(--surface); border: 1px solid var(--gold); padding: 2.5rem; border-radius: 8px; max-width: 520px; width: 100%; position: relative; }
+.close-modal { position: absolute; top: 1rem; right: 1rem; cursor: pointer; color: var(--gold); font-size: 1.2rem; background: none; border: none; }
+
+/* API Key Setup Modal */
+#setup-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 1001;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+#setup-modal.open { display: flex; }
+.setup-modal-inner { background: var(--surface); border: 1px solid var(--border); padding: 2rem; border-radius: 12px; max-width: 440px; width: 100%; position: relative; }
+.setup-modal-inner h3 { font-family: 'Playfair Display', serif; color: var(--gold); margin-bottom: 0.5rem; font-size: 1.3rem; }
+.setup-modal-inner p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem; line-height: 1.5; }
+.form-label { display: block; font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+.form-input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none; margin-bottom: 6px; }
+.form-input:focus { border-color: rgba(201,168,76,0.5); }
+.form-note { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.2rem; }
+.form-note a { color: var(--gold); text-decoration: none; }
+.modal-btns { display: flex; gap: 10px; margin-top: 1.5rem; }
+
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.msg { animation: fadeIn 0.25s ease; }
+@media (max-width: 600px) { h1 { font-size: 2.5rem; } .contact-grid { flex-direction: column; } }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">M. Meneses</a>
+        <div class="badge-group">
+            <div class="status-badge"><div class="dot"></div>RISING JUNIOR</div>
+            <div class="intern-badge">SEEKING SUMMER INTERNSHIP 2026</div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-eyebrow">Business Analytics & Finance</div>
+        <h1>Synthesizing <span>Data.</span> Commanding <span>Operations.</span></h1>
+        <p class="hero-tagline">
+            Rising Junior BBA candidate at Wilkes University and <strong>Greenwood Project FinTech Scholar</strong>.
+            Applying the discipline of a DIII wrestler to high-stakes business analytics and growth strategy.
+        </p>
+        <button class="btn-pitch" id="pitch-trigger">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Generate 30-Second Pitch
+        </button>
+    </section>
+
+    <!-- Timeline -->
+    <h2 class="section-header">Career Timeline</h2>
+    <section class="timeline-section">
+        <div class="timeline">
+            <div class="milestone">
+                <div class="m-year">Feb 2026</div>
+                <div class="m-title">Goldman Sachs Operations Simulation — Forage</div>
+                <div class="m-desc">Analyzed trade settlement discrepancies and HNW client asset transfers. Reviewed operational risk and regulatory considerations for time-sensitive transactions.</div>
+            </div>
+            <div class="milestone">
+                <div class="m-year">Jan 2026</div>
+                <div class="m-title">Goldman Sachs Risk Management Simulation — Forage</div>
+                <div class="m-desc">Conducted credit risk assessments using income, debt ratios, credit history, and liquidity data. Developed quantitative risk mitigation recommendations.</div>
+            </div>
+            <div class="milestone">
+                <div class="m-year">Jan 2026</div>
+                <div class="m-title">FinTech Scholar — Greenwood Project</div>
+                <div class="m-desc">Competitively selected for year-long intensive program in risk management, blockchain, data analytics, and financial technology. Weekly workshops + executive mentorship.</div>
+            </div>
+            <div class="milestone">
+                <div class="m-year">2025</div>
+                <div class="m-title">Growth Intern — MYLS AI</div>
+                <div class="m-desc">Content strategy and KPI analysis across TikTok, Instagram, X, and Reddit. Collaborated with micro-influencers and leveraged AI-driven growth tools.</div>
+            </div>
+            <div class="milestone">
+                <div class="m-year">2025</div>
+                <div class="m-title">Area Manager — Fox Pool Management</div>
+                <div class="m-desc">Oversaw 10+ pool facilities and 20+ seasonal staff. Managed scheduling, logistics, compliance, and client conflict resolution across multi-site operations.</div>
+            </div>
+            <div class="milestone">
+                <div class="m-year">2024</div>
+                <div class="m-title">Academic & Athletic Foundation — Wilkes University</div>
+                <div class="m-desc">Started BBA (Business Analytics minor) at Wilkes. Dean's List Fall 2024 (3.53 GPA). NCAA Division III Wrestler at 125 lbs.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <h2 class="section-header">Technical Skillset</h2>
+    <div class="skills-bar">
+        <div class="skill-pill">Financial Risk Analysis</div>
+        <div class="skill-pill">Excel Modeling</div>
+        <div class="skill-pill">Credit Assessment</div>
+        <div class="skill-pill">KPI Tracking</div>
+        <div class="skill-pill">Operations Management</div>
+        <div class="skill-pill">Market Research</div>
+        <div class="skill-pill">Compliance Awareness</div>
+        <div class="skill-pill">Bilingual EN/ES</div>
+        <div class="skill-pill">AI Growth Strategy</div>
+        <div class="skill-pill">Scenario Analysis</div>
+        <div class="skill-pill">Trade Settlement</div>
+        <div class="skill-pill">Data Interpretation</div>
+    </div>
+
+    <!-- AI Assistant -->
+    <h2 class="section-header">Recruiter Mode AI Assistant</h2>
+    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem; font-family: 'DM Mono', monospace;">Responses are AI-generated and based on Marco's verified profile. Try asking: <em style="color: var(--gold);">"Is Marco a fit for a financial analyst role?"</em></p>
+    <div class="ai-container">
+        <div class="ai-header">
+            <div class="ai-header-left">
+                <div style="font-size: 0.8rem; font-weight: bold; color: var(--gold);">MARCO'S ASSISTANT</div>
+                <div class="api-status no-key" id="api-status">NO API KEY — CLICK SETUP</div>
+            </div>
+            <div class="ai-header-right">
+                <button class="recruiter-mode-btn" id="recruiter-mode-btn">RECRUITER MODE</button>
+                <button class="setup-btn" id="setup-btn">⚙ SETUP</button>
+            </div>
+        </div>
+
+        <div class="ai-messages" id="chat-window">
+            <div class="msg ai">Hi! I'm Marco's recruiter concierge — loaded with his full professional profile including Goldman Sachs simulations, Greenwood FinTech training, and operational leadership experience. Click <strong>⚙ SETUP</strong> to connect a free Gemini API key, then ask me anything.</div>
+        </div>
+
+        <div class="quick-prompts">
+            <div class="prompt-chip" data-query="Summarize Marco in 30 seconds for a recruiter">30s Summary</div>
+            <div class="prompt-chip" data-query="What are Marco's strongest skills?">Key Skills</div>
+            <div class="prompt-chip" data-query="What internship roles fit Marco best and why?">Role Fit</div>
+            <div class="prompt-chip" data-query="Explain Marco's Goldman Sachs simulations in detail">Goldman Simulations</div>
+            <div class="prompt-chip" data-query="How does Marco's wrestling experience translate to the workplace?">Athlete Discipline</div>
+        </div>
+
+        <div class="ai-input-area">
+            <input type="text" id="ai-input" class="ai-input" placeholder="Ask about role fit, experience, or skills...">
+            <button class="btn-pitch" style="padding: 10px 20px;" id="ai-send">Ask</button>
+        </div>
+    </div>
+
+    <!-- Work With Marco -->
+    <section class="work-section">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem;">Work With Marco</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Ready to bring analytical discipline and operational excellence to your program?</p>
+        <div class="contact-grid">
+            <a href="mailto:marco.a.meneses05@gmail.com" class="contact-link">EMAIL MARCO</a>
+            <a href="https://linkedin.com/in/marco-meneses-a25683350" class="contact-link" target="_blank">LINKEDIN</a>
+            <a href="mailto:marco.a.meneses05@gmail.com?subject=Resume Request — Marco Meneses" class="contact-link" style="background: var(--gold); color: #000;">DOWNLOAD RESUME</a>
+        </div>
+    </section>
+
+</div>
+
+<!-- Pitch Modal -->
+<div id="pitch-modal">
+    <div class="modal-content">
+        <button class="close-modal" id="close-pitch">✕</button>
+        <h3 style="font-family: 'Playfair Display'; margin-bottom: 1rem; color: var(--gold);">AI Elevator Pitch</h3>
+        <div id="pitch-output" style="font-size: 1rem; line-height: 1.7; color: var(--text-muted);">Generating pitch...</div>
+    </div>
+</div>
+
+<!-- API Setup Modal -->
+<div id="setup-modal">
+    <div class="setup-modal-inner">
+        <button class="close-modal" id="close-setup">✕</button>
+        <h3>Connect AI</h3>
+        <p>Paste a free Google Gemini API key to activate the chatbot. Your key stays in this browser session only.</p>
+        <label class="form-label" for="key-input">Gemini API Key</label>
+        <input class="form-input" type="password" id="key-input" placeholder="AIzaSy..." />
+        <p class="form-note">Get a free key at <a href="https://aistudio.google.com/apikey" target="_blank">aistudio.google.com/apikey</a> — no credit card needed.</p>
+        <div class="modal-btns">
+            <button class="btn-pitch" style="flex:1" id="save-key-btn">Activate</button>
+            <button class="setup-btn" id="cancel-setup-btn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// ─── STATE ───────────────────────────────────────────────────────────────────
+let GEMINI_API_KEY = "";
+
+const SYSTEM_PROMPT = `You are a professional AI recruiting assistant representing Marco Meneses.
+Speak in third person. Be concise, executive, and focused on professional ROI.
+Answer only about Marco — if asked something unrelated, redirect to his profile.
+
+PROFILE:
+- Rising Junior BBA candidate, Wilkes University (Jay S. Sidhu School of Business), Class of 2028
+- Minor: Business Analytics | AACSB-accredited program
+- GPA: 3.53 Dean's List Fall 2024 (cumulative 2.90, upward trajectory)
+- Bilingual: English and Spanish
+
+KEY CREDENTIALS:
+1. Greenwood Project FinTech Academy Scholar (Jan 2026–Present): Competitively selected. Weekly workshops in risk management, blockchain, data analytics, and financial technology. Executive coaching and mentorship.
+2. Goldman Sachs Risk Management Simulation — Forage (Jan 2026): Credit risk assessments using income, debt ratios, liquidity, and credit history data. Quantitative risk mitigation analysis.
+3. Goldman Sachs Operations Simulation — Forage (Feb 2026): Trade settlement discrepancy analysis and HNW asset transfers. Operational risk, regulatory compliance, and cross-functional resolution strategies.
+4. NCAA Division III Wrestler (125 lbs): Demonstrates discipline, resilience, high performance under pressure, time management.
+
+EXPERIENCE:
+- Growth Intern, MYLS AI (Oct–Dec 2025): Content strategy and performance analytics across TikTok, Instagram, X, Reddit. Micro-influencer coordination. AI-driven growth tools.
+- Area Manager, Fox Pool Management (May–Aug 2025): 20+ seasonal staff, 10+ locations. Scheduling, logistics, inventory, emergency protocols, client and employee conflict resolution.
+- Startup Project (Wilkes): Managed $1,000 startup loan. Sold 75 units, sold out in under one month. Donated 100% of profits to The Salvation Army.
+
+SKILLS: Financial Risk Analysis, Credit Assessment, Excel Modeling, KPI Tracking, Operations Management, Market Research, Compliance Awareness, Scenario Analysis, AI Growth Strategy, Trade Settlement, Bilingual EN/ES.
+
+TARGETS: Finance, FinTech, business analytics, consulting, digital marketing, operations internships for Summer 2026.
+CONTACT: marco.a.meneses05@gmail.com | linkedin.com/in/marco-meneses-a25683350
+
+GUIDELINES: Lead with Greenwood + GS simulations. Handle GPA honestly (3.53 Dean's List, improving). Keep answers to 3–5 sentences unless listing items.`;
+
+// ─── GEMINI API CALL (direct REST — no SDK needed) ───────────────────────────
+async function callGemini(userMessage) {
+    if (!GEMINI_API_KEY) {
+        openSetup();
+        return null;
+    }
+
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+
+    const body = {
+    contents: [{
+        parts: [{ text: SYSTEM_PROMPT + "\n\nQuestion: " + userMessage }]
+    }],
+   generationConfig: { maxOutputTokens: 800, temperature: 0.7, thinkingConfig: { thinkingBudget: 0 } }
+};
+
+    const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+
+    if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err?.error?.message || `HTTP ${res.status}`);
+    }
+
+    const data = await res.json();
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
+}
+
+// ─── CHAT UI ─────────────────────────────────────────────────────────────────
+function addMessage(text, sender) {
+    const chatWindow = document.getElementById("chat-window");
+    const div = document.createElement("div");
+    div.classList.add("msg", sender);
+    div.innerHTML = text.replace(/\n/g, "<br>");
+    chatWindow.appendChild(div);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+    return div;
+}
+
+function addTyping() {
+    return addMessage("Analyzing...", "ai");
+}
+
+async function askAI(prompt) {
+    addMessage(prompt, "user");
+    const typingEl = addTyping();
+    try {
+        const reply = await callGemini(prompt);
+        if (reply) typingEl.innerHTML = reply.replace(/\n/g, "<br>");
+        else typingEl.remove();
+    } catch (e) {
+        typingEl.innerHTML = `<b>Error:</b> ${e.message}. Check your API key in ⚙ Setup.`;
+        console.error(e);
+    }
+}
+
+// ─── EVENT LISTENERS ─────────────────────────────────────────────────────────
+
+// Ask button + Enter key
+document.getElementById("ai-send").addEventListener("click", () => {
+    const input = document.getElementById("ai-input");
+    const prompt = input.value.trim();
+    if (!prompt) return;
+    input.value = "";
+    askAI(prompt);
+});
+
+document.getElementById("ai-input").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        document.getElementById("ai-send").click();
+    }
+});
+
+// Quick prompt chips
+document.querySelectorAll(".prompt-chip").forEach(chip => {
+    chip.addEventListener("click", () => askAI(chip.dataset.query));
+});
+
+// Recruiter Mode — fires 3 questions sequentially
+let recruiterCooldown = false;
+
+document.getElementById("recruiter-mode-btn").addEventListener("click", async () => {
+    if (recruiterCooldown) {
+        addMessage("Please wait 60 seconds before running Recruiter Mode again to conserve API quota.", "ai");
+        return;
+    }
+    recruiterCooldown = true;
+    document.getElementById("recruiter-mode-btn").textContent = "COOLING DOWN...";
+    document.getElementById("recruiter-mode-btn").disabled = true;
+
+    const questions = [
+        "Give me a concise 30-second summary of Marco for a recruiter.",
+        "What roles is Marco best suited for and why?"
+    ];
+    for (const q of questions) {
+        await askAI(q);
+        await new Promise(r => setTimeout(r, 400));
+    }
+
+    setTimeout(() => {
+        recruiterCooldown = false;
+        document.getElementById("recruiter-mode-btn").textContent = "RECRUITER MODE";
+        document.getElementById("recruiter-mode-btn").disabled = false;
+    }, 60000);
+});
+// 30-Second Pitch button
+document.getElementById("pitch-trigger").addEventListener("click", async () => {
+    const modal = document.getElementById("pitch-modal");
+    const output = document.getElementById("pitch-output");
+    modal.classList.add("open");
+    output.innerHTML = "Synthesizing career highlights...";
+    try {
+        const reply = await callGemini("Generate a compelling, natural-sounding 30-second elevator pitch for a recruiter. Write it in first person as if Marco is speaking.");
+        output.innerHTML = reply ? reply.replace(/\n/g, "<br>") : "Marco is a Wilkes University BBA candidate, Greenwood Project FinTech Scholar, Goldman Sachs simulation alumnus, and NCAA DIII wrestler — combining analytical rigor with operational leadership.";
+    } catch (e) {
+        output.innerHTML = "Marco is a Wilkes University BBA candidate, Greenwood Project FinTech Scholar, Goldman Sachs simulation alumnus, and NCAA DIII wrestler.";
+    }
+});
+
+document.getElementById("close-pitch").addEventListener("click", () => {
+    document.getElementById("pitch-modal").classList.remove("open");
+});
+
+// Close modals on outside click
+document.getElementById("pitch-modal").addEventListener("click", (e) => {
+    if (e.target === document.getElementById("pitch-modal"))
+        document.getElementById("pitch-modal").classList.remove("open");
+});
+
+document.getElementById("setup-modal").addEventListener("click", (e) => {
+    if (e.target === document.getElementById("setup-modal"))
+        document.getElementById("setup-modal").classList.remove("open");
+});
+
+// ─── API KEY SETUP ────────────────────────────────────────────────────────────
+function openSetup() { document.getElementById("setup-modal").classList.add("open"); }
+function closeSetup() { document.getElementById("setup-modal").classList.remove("open"); }
+
+document.getElementById("setup-btn").addEventListener("click", openSetup);
+document.getElementById("close-setup").addEventListener("click", closeSetup);
+document.getElementById("cancel-setup-btn").addEventListener("click", closeSetup);
+
+document.getElementById("save-key-btn").addEventListener("click", () => {
+    const key = document.getElementById("key-input").value.trim();
+    if (!key) { alert("Please paste your API key."); return; }
+    GEMINI_API_KEY = key;
+    const status = document.getElementById("api-status");
+    status.textContent = "GEMINI 2.5 FLASH • ACTIVE";
+    status.className = "api-status has-key";
+    closeSetup();
+    // Clear chat and show ready state
+    const chatWindow = document.getElementById("chat-window");
+    chatWindow.innerHTML = "";
+    addMessage("Connected via Gemini 2.5 Flash. Ask me anything about Marco — try a quick prompt below or type your own question.", "ai");
+});
+</script>
+
+</body>
+</html>
