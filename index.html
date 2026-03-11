@@ -76,13 +76,8 @@ h1 span { color: var(--gold); }
 .ai-header { background: var(--surface-alt); padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .ai-header-left { display: flex; flex-direction: column; gap: 2px; }
 .ai-header-right { display: flex; align-items: center; gap: 10px; }
-
 .api-status { font-size: 0.6rem; font-family: 'DM Mono', monospace; padding: 3px 8px; border-radius: 10px; }
-.api-status.no-key { color: #f97316; background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.2); }
 .api-status.has-key { color: var(--accent); background: rgba(45,212,160,0.1); border: 1px solid rgba(45,212,160,0.2); }
-
-.setup-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 5px 12px; font-size: 0.7rem; font-family: 'DM Mono', monospace; border-radius: 4px; cursor: pointer; transition: 0.3s; }
-.setup-btn:hover { background: var(--gold); color: #000; }
 .recruiter-mode-btn { background: transparent; border: 1px solid rgba(201,168,76,0.4); color: var(--text-muted); padding: 5px 12px; font-size: 0.7rem; font-family: 'DM Mono', monospace; border-radius: 4px; cursor: pointer; transition: 0.3s; }
 .recruiter-mode-btn:hover { border-color: var(--gold); color: var(--gold); }
 
@@ -123,28 +118,6 @@ h1 span { color: var(--gold); }
 #pitch-modal.open { display: flex; }
 .modal-content { background: var(--surface); border: 1px solid var(--gold); padding: 2.5rem; border-radius: 8px; max-width: 520px; width: 100%; position: relative; }
 .close-modal { position: absolute; top: 1rem; right: 1rem; cursor: pointer; color: var(--gold); font-size: 1.2rem; background: none; border: none; }
-
-/* API Key Setup Modal */
-#setup-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    z-index: 1001;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
-#setup-modal.open { display: flex; }
-.setup-modal-inner { background: var(--surface); border: 1px solid var(--border); padding: 2rem; border-radius: 12px; max-width: 440px; width: 100%; position: relative; }
-.setup-modal-inner h3 { font-family: 'Playfair Display', serif; color: var(--gold); margin-bottom: 0.5rem; font-size: 1.3rem; }
-.setup-modal-inner p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem; line-height: 1.5; }
-.form-label { display: block; font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
-.form-input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none; margin-bottom: 6px; }
-.form-input:focus { border-color: rgba(201,168,76,0.5); }
-.form-note { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.2rem; }
-.form-note a { color: var(--gold); text-decoration: none; }
-.modal-btns { display: flex; gap: 10px; margin-top: 1.5rem; }
 
 @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
@@ -240,16 +213,15 @@ h1 span { color: var(--gold); }
         <div class="ai-header">
             <div class="ai-header-left">
                 <div style="font-size: 0.8rem; font-weight: bold; color: var(--gold);">MARCO'S ASSISTANT</div>
-                <div class="api-status no-key" id="api-status">NO API KEY — CLICK SETUP</div>
+                <div class="api-status has-key" id="api-status">GEMINI 2.5 FLASH • ACTIVE</div>
             </div>
             <div class="ai-header-right">
                 <button class="recruiter-mode-btn" id="recruiter-mode-btn">RECRUITER MODE</button>
-                <button class="setup-btn" id="setup-btn">⚙ SETUP</button>
             </div>
         </div>
 
         <div class="ai-messages" id="chat-window">
-            <div class="msg ai">Hi! I'm Marco's recruiter concierge — loaded with his full professional profile including Goldman Sachs simulations, Greenwood FinTech training, and operational leadership experience. Click <strong>⚙ SETUP</strong> to connect a free Gemini API key, then ask me anything.</div>
+            <div class="msg ai">Hi! I'm Marco's recruiter concierge — loaded with his full professional profile including Goldman Sachs simulations, Greenwood FinTech training, and operational leadership experience. Ask me anything about Marco's background or fit for your role.</div>
         </div>
 
         <div class="quick-prompts">
@@ -288,26 +260,11 @@ h1 span { color: var(--gold); }
     </div>
 </div>
 
-<!-- API Setup Modal -->
-<div id="setup-modal">
-    <div class="setup-modal-inner">
-        <button class="close-modal" id="close-setup">✕</button>
-        <h3>Connect AI</h3>
-        <p>Paste a free Google Gemini API key to activate the chatbot. Your key stays in this browser session only.</p>
-        <label class="form-label" for="key-input">Gemini API Key</label>
-        <input class="form-input" type="password" id="key-input" placeholder="AIzaSy..." />
-        <p class="form-note">Get a free key at <a href="https://aistudio.google.com/apikey" target="_blank">aistudio.google.com/apikey</a> — no credit card needed.</p>
-        <div class="modal-btns">
-            <button class="btn-pitch" style="flex:1" id="save-key-btn">Activate</button>
-            <button class="setup-btn" id="cancel-setup-btn">Cancel</button>
-        </div>
-    </div>
-</div>
-
 <script>
-// ─── STATE ───────────────────────────────────────────────────────────────────
-let GEMINI_API_KEY = "";
+// ─── API KEY — paste your key between the quotes ──────────────────────────────
+const GEMINI_API_KEY = "AIzaSyCNUdsMti74HixVxS4XH39cP3KMvWS-gNM";
 
+// ─── SYSTEM PROMPT ────────────────────────────────────────────────────────────
 const SYSTEM_PROMPT = `You are a professional AI recruiting assistant representing Marco Meneses.
 Speak in third person. Be concise, executive, and focused on professional ROI.
 Answer only about Marco — if asked something unrelated, redirect to his profile.
@@ -336,21 +293,16 @@ CONTACT: marco.a.meneses05@gmail.com | linkedin.com/in/marco-meneses-a25683350
 
 GUIDELINES: Lead with Greenwood + GS simulations. Handle GPA honestly (3.53 Dean's List, improving). Keep answers to 3–5 sentences unless listing items.`;
 
-// ─── GEMINI API CALL (direct REST — no SDK needed) ───────────────────────────
+// ─── GEMINI API CALL ──────────────────────────────────────────────────────────
 async function callGemini(userMessage) {
-    if (!GEMINI_API_KEY) {
-        openSetup();
-        return null;
-    }
-
     const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
     const body = {
-    contents: [{
-        parts: [{ text: SYSTEM_PROMPT + "\n\nQuestion: " + userMessage }]
-    }],
-   generationConfig: { maxOutputTokens: 800, temperature: 0.7, thinkingConfig: { thinkingBudget: 0 } }
-};
+        contents: [{
+            parts: [{ text: SYSTEM_PROMPT + "\n\nQuestion: " + userMessage }]
+        }],
+        generationConfig: { maxOutputTokens: 800, temperature: 0.7, thinkingConfig: { thinkingBudget: 0 } }
+    };
 
     const res = await fetch(endpoint, {
         method: "POST",
@@ -367,7 +319,7 @@ async function callGemini(userMessage) {
     return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
 }
 
-// ─── CHAT UI ─────────────────────────────────────────────────────────────────
+// ─── CHAT UI ──────────────────────────────────────────────────────────────────
 function addMessage(text, sender) {
     const chatWindow = document.getElementById("chat-window");
     const div = document.createElement("div");
@@ -390,14 +342,14 @@ async function askAI(prompt) {
         if (reply) typingEl.innerHTML = reply.replace(/\n/g, "<br>");
         else typingEl.remove();
     } catch (e) {
-        typingEl.innerHTML = `<b>Error:</b> ${e.message}. Check your API key in ⚙ Setup.`;
+        typingEl.innerHTML = `<b>Error:</b> ${e.message}`;
         console.error(e);
     }
 }
 
-// ─── EVENT LISTENERS ─────────────────────────────────────────────────────────
+// ─── EVENT LISTENERS ──────────────────────────────────────────────────────────
 
-// Ask button + Enter key
+// Ask button
 document.getElementById("ai-send").addEventListener("click", () => {
     const input = document.getElementById("ai-input");
     const prompt = input.value.trim();
@@ -406,10 +358,9 @@ document.getElementById("ai-send").addEventListener("click", () => {
     askAI(prompt);
 });
 
+// Enter key
 document.getElementById("ai-input").addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        document.getElementById("ai-send").click();
-    }
+    if (e.key === "Enter") document.getElementById("ai-send").click();
 });
 
 // Quick prompt chips
@@ -417,7 +368,7 @@ document.querySelectorAll(".prompt-chip").forEach(chip => {
     chip.addEventListener("click", () => askAI(chip.dataset.query));
 });
 
-// Recruiter Mode — fires 3 questions sequentially
+// Recruiter Mode with cooldown
 let recruiterCooldown = false;
 
 document.getElementById("recruiter-mode-btn").addEventListener("click", async () => {
@@ -444,6 +395,7 @@ document.getElementById("recruiter-mode-btn").addEventListener("click", async ()
         document.getElementById("recruiter-mode-btn").disabled = false;
     }, 60000);
 });
+
 // 30-Second Pitch button
 document.getElementById("pitch-trigger").addEventListener("click", async () => {
     const modal = document.getElementById("pitch-modal");
@@ -458,41 +410,15 @@ document.getElementById("pitch-trigger").addEventListener("click", async () => {
     }
 });
 
+// Close pitch modal — button
 document.getElementById("close-pitch").addEventListener("click", () => {
     document.getElementById("pitch-modal").classList.remove("open");
 });
 
-// Close modals on outside click
+// Close pitch modal — outside click
 document.getElementById("pitch-modal").addEventListener("click", (e) => {
     if (e.target === document.getElementById("pitch-modal"))
         document.getElementById("pitch-modal").classList.remove("open");
-});
-
-document.getElementById("setup-modal").addEventListener("click", (e) => {
-    if (e.target === document.getElementById("setup-modal"))
-        document.getElementById("setup-modal").classList.remove("open");
-});
-
-// ─── API KEY SETUP ────────────────────────────────────────────────────────────
-function openSetup() { document.getElementById("setup-modal").classList.add("open"); }
-function closeSetup() { document.getElementById("setup-modal").classList.remove("open"); }
-
-document.getElementById("setup-btn").addEventListener("click", openSetup);
-document.getElementById("close-setup").addEventListener("click", closeSetup);
-document.getElementById("cancel-setup-btn").addEventListener("click", closeSetup);
-
-document.getElementById("save-key-btn").addEventListener("click", () => {
-    const key = document.getElementById("key-input").value.trim();
-    if (!key) { alert("Please paste your API key."); return; }
-    GEMINI_API_KEY = key;
-    const status = document.getElementById("api-status");
-    status.textContent = "GEMINI 2.5 FLASH • ACTIVE";
-    status.className = "api-status has-key";
-    closeSetup();
-    // Clear chat and show ready state
-    const chatWindow = document.getElementById("chat-window");
-    chatWindow.innerHTML = "";
-    addMessage("Connected via Gemini 2.5 Flash. Ask me anything about Marco — try a quick prompt below or type your own question.", "ai");
 });
 </script>
 
