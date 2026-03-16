@@ -262,7 +262,7 @@ h1 span { color: var(--gold); }
 
 <script>
 // ─── API KEY — paste your key between the quotes ──────────────────────────────
-const GEMINI_API_KEY = "AIzaSyCso5CbR9wFIYaeXXdlOTDn7iPzEFaxNo4";
+const GEMINI_API_KEY = "";
 
 // ─── SYSTEM PROMPT ────────────────────────────────────────────────────────────
 const SYSTEM_PROMPT = `You are a professional AI recruiting assistant representing Marco Meneses.
@@ -295,30 +295,14 @@ GUIDELINES: Lead with Greenwood + GS simulations. Handle GPA honestly (3.53 Dean
 
 // ─── GEMINI API CALL ──────────────────────────────────────────────────────────
 async function callGemini(userMessage) {
-    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
-
-    const body = {
-        contents: [{
-            parts: [{ text: SYSTEM_PROMPT + "\n\nQuestion: " + userMessage }]
-        }],
-        generationConfig: { maxOutputTokens: 800, temperature: 0.7, thinkingConfig: { thinkingBudget: 0 } }
-    };
-
-    const res = await fetch(endpoint, {
+    const res = await fetch("/.netlify/functions/gemini", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
+        body: JSON.stringify({ message: userMessage, systemPrompt: SYSTEM_PROMPT })
     });
-
-    if (!res.ok) {
-        const err = await res.json();
-        throw new Error(err?.error?.message || `HTTP ${res.status}`);
-    }
-
     const data = await res.json();
     return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
 }
-
 // ─── CHAT UI ──────────────────────────────────────────────────────────────────
 function addMessage(text, sender) {
     const chatWindow = document.getElementById("chat-window");
