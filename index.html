@@ -301,6 +301,7 @@ async function callGemini(userMessage) {
         body: JSON.stringify({ message: userMessage, systemPrompt: SYSTEM_PROMPT })
     });
     const data = await res.json();
+    if (data.error) throw new Error(data.error);
     return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
 }
 // ─── CHAT UI ──────────────────────────────────────────────────────────────────
